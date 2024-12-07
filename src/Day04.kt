@@ -109,7 +109,3 @@ fun main() {
     check(part2(testInput).also { println("Answer test input part2: $it") } == 9)
     println("Answer part2: " + part2(input))
 }
-
-enum class Direction {
-    UP, DOWN, LEFT, RIGHT, UPLEFT, UPRIGHT, DOWNLEFT, DOWNRIGHT
-}
