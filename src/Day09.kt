@@ -44,14 +44,13 @@ fun main() {
     fun swapNumber(number: Int, index: Int, size: Int, swappedRow: MutableList<Int?>): MutableList<Int?> {
         var i = 0
         var j = 0
-        while (i < index) {
+        while (i <= index) {
             if (swappedRow[i] == null) {
                 j++
             } else {
                 j = 0
             }
             if (j == size) {
-//                println("$number, $size, ${i-j+1}, ${index+1}")
                 (0..<size).forEach {
                     swappedRow[i - j + it + 1] = number
                     swappedRow[index + it + 1] = null
@@ -123,7 +122,6 @@ fun main() {
 
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("input/Day09_test")
-//    val testInput2 = readInput("input/Day09_test_2")
     val input = readInput("input/Day09")
 
     println("---- PART 1 ----")
@@ -131,10 +129,8 @@ fun main() {
     println("Answer part1: " + part1(input))
 
     println("---- PART 2 ----")
-    // this works
     check(part2(testInput).also { println("Answer test input part2: $it") } == 2858L)
-    // this works
-//    check(part2(testInput2).also { println("Answer test input part2: $it") } == 5799706413896802L)
-    // but this doesn't work
+    val currentTimeMillis = System.currentTimeMillis()
     println("Answer part2: " + part2(input))
+    println("${System.currentTimeMillis() - currentTimeMillis}")
 }
