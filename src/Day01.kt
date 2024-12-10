@@ -12,7 +12,7 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         val (left, right) = parseInput(input)
-        return left.indices.sumOf { abs( left[it] - right[it]) }
+        return left.indices.sumOf { abs(left[it] - right[it]) }
     }
 
     fun part2(input: List<String>): Int {

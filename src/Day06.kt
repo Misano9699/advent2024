@@ -60,11 +60,6 @@ fun goUp(point: Point, map: List<List<Char>>, path: MutableSet<Point>) {
 
 fun main() {
 
-    fun parseInput(input: List<String>): List<List<Char>> =
-        input.map { row ->
-            row.map { it }
-        }
-
     fun findStart(map: List<List<Char>>): Point {
         for (y in map.indices) {
             for (x in map[y].indices) {
@@ -77,7 +72,7 @@ fun main() {
     }
 
     fun part1(input: List<String>): Int {
-        val map = parseInput(input)
+        val map = toCharMatrix(input)
         val start = findStart(map)
         val path = mutableSetOf(start)
         goUp(start, map, path)
@@ -179,6 +174,7 @@ fun main() {
                         }
                     }
                 }
+
                 else -> return false
             }
 
@@ -187,7 +183,7 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        val map = parseInput(input)
+        val map = toCharMatrix(input)
         val start = findStart(map)
         var counter = 0
         for (y in map.indices) {

@@ -20,6 +20,20 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  */
 fun Any?.println() = println(this)
 
+fun toCharMatrix(input: List<String>): List<List<Char>> =
+    input.map { row ->
+        row.map { it }
+    }
+
+fun toIntMatrix(input: List<String>, delimiter: String): List<List<Int>> {
+    return input.map { line ->
+        line.split(delimiter).map { it.toInt() } }
+}
+
+fun toIntMatrix(input: List<String>): List<List<Int>> {
+    return input.map { line ->
+        line.map { it.digitToIntOrNull()!! } }
+}
 
 enum class Direction {
     UP, DOWN, LEFT, RIGHT, UPLEFT, UPRIGHT, DOWNLEFT, DOWNRIGHT

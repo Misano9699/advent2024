@@ -74,7 +74,7 @@ fun main() {
 
     fun orderRow(row: List<Int>, map: Map<Int, List<Int>>): List<Int> {
         var newRow = row.toMutableList()
-        while(!isOrdered(newRow, map)) {
+        while (!isOrdered(newRow, map)) {
             newRow = swapValues(newRow, map)
         }
         return newRow

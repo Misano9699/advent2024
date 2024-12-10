@@ -2,15 +2,15 @@ fun main() {
 
     val regex = "mul\\([0-9]+\\,[0-9]+\\)".toRegex()
     val regex2 = "(do\\(\\))|(don't\\(\\))|(mul\\([0-9]+\\,[0-9]+\\))".toRegex()
-    fun multiply(value: String) : Int {
+    fun multiply(value: String): Int {
         val numbers = value.substringAfter("mul(")
         val firstNumber = numbers.substringBefore(",").toInt()
         val secondNumber = numbers.substringAfter(",").substringBefore(")").toInt()
-        return firstNumber*secondNumber
+        return firstNumber * secondNumber
     }
 
     fun part1(input: List<String>): Int {
-      return input.sumOf { row ->
+        return input.sumOf { row ->
             regex.findAll(row).sumOf { matchResult ->
                 multiply(matchResult.value)
             }
@@ -32,6 +32,7 @@ fun main() {
                     calculate = true
                     0
                 }
+
                 else -> if (calculate) {
                     multiply(it.value)
                 } else {

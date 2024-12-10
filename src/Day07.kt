@@ -24,15 +24,15 @@ fun main() {
             when (operators[index]) {
                 '0' -> sum += equation.second[index + 1]
                 '1' -> sum *= equation.second[index + 1]
+                // part 2 only
                 '2' -> sum = (sum.toString() + equation.second[index + 1].toString()).toLong()
             }
         }
         return sum == equation.first
     }
 
-    fun isValidEquation(equation: Pair<Long, List<Long>>, radix : Int): Boolean {
+    fun isValidEquation(equation: Pair<Long, List<Long>>, radix: Int): Boolean {
         val operators = createListOfOperators(equation.second.size - 1, radix)
-        println(operators)
         operators.forEach {
             val isValid = calculate(it, equation)
             if (isValid) {
@@ -65,7 +65,7 @@ fun main() {
     val input = readInput("input/Day07")
 
     println("---- PART 1 ----")
-    check(part1(testInput).also { println("Answer test input part1: $it") } == 3749L )
+    check(part1(testInput).also { println("Answer test input part1: $it") } == 3749L)
     println("Answer part1: " + part1(input))
 
     println("---- PART 2 ----")

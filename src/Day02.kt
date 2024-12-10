@@ -2,11 +2,8 @@ import kotlin.math.abs
 
 fun main() {
 
-    fun parseInput(input: List<String>): List<List<Int>> {
-        return input.map { line -> line.split(" ").map { it.toInt() } }
-    }
 
-    fun isSafe(row : List<Int>) : Boolean {
+    fun isSafe(row: List<Int>): Boolean {
         val map = (0..row.size - 2).map {
             row[it] - row[it + 1]
         }
@@ -14,13 +11,13 @@ fun main() {
     }
 
     fun part1(input: List<String>): Int {
-        val list = parseInput(input)
+        val list = toIntMatrix(input, " ")
         return list.map { row -> isSafe(row) }
             .count { it }
     }
 
     fun part2(input: List<String>): Int {
-        val list = parseInput(input)
+        val list = toIntMatrix(input, " ")
         return list.map { row ->
             var i = 0
             var mutableList = row.toMutableList()
